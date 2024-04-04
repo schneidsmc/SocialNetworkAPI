@@ -14,7 +14,7 @@
   <img src="https://img.shields.io/badge/Express-blue"  />
   <img src="https://img.shields.io/badge/-node.js-green" />
   <img src="https://img.shields.io/badge/-Mongoose-red" >
-  <img src="https://img.shields.io/badge/-IDKYET-lightgrey" />
+  <img src="https://img.shields.io/badge/-nodemon-lightgrey" />
 </div>
 
 ## Description 📚
