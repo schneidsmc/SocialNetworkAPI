@@ -1,8 +1,5 @@
 
-// addFriend
-// deleteFriend
-
-const { User, Thought, Model } = require('../models');
+const { User, Thought } = require('../models');
 
 module.exports = {
 
