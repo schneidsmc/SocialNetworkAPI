@@ -74,9 +74,13 @@ module.exports = {
 // CREATE REACTION
     async createReaction(req, res) {
         try{
+            const thoughtId = req.params.thoughtId;
+            const {reactionBody, username} = req.body;
+
+
             const thought = await Thought.findOneAndUpdate(
-                {_id: req.params.thoughtId},
-                {$addToSet: {reaction: req.body}},
+                {_id: thoughtId},
+                {$addToSet: {reactions:{ reactionBody, username }}},
                 {runValidators: true, new: true}
             );
         if (!thought) {
@@ -91,9 +95,12 @@ module.exports = {
 // DELETE REACTION
     async deleteReaction(req, res) {
         try{
+            const thoughtId = req.params.thoughtId;
+            const reactionId = req.params.reactionId;
+
             const thought = await Thought.findOneAndUpdate(
-                {_id: req.params.thoughtId},
-                {$pull: {reaction: {reactionId: req.params.reactionId}}},
+                {_id: thoughtId},
+                {$pull: {reactions: {reactionId: reactionId}}},
                 {runValidators: true, new: true}
             );
             if(!thought){
