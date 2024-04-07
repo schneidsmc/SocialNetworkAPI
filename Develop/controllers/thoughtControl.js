@@ -53,26 +53,7 @@ module.exports = {
             return res.status(500).json(err);
         }
     },
-    // async createThought(req, res) {
-    //     try {
-    //         const thought = await Thought.create(req.body);
-    //         const userId = req.params;
 
-    //         const user = await User.findOneAndUpdate(
-    //             {_id: userId},
-    //             {$push: {thoughts: thought._id}},
-    //             {runValidators: true, new: true}
-    //         );
-
-    //         if (!user) {
-    //             return res.status(404).json({message: 'No User with this ID'})
-    //         }
-    //          res.json({user, thought})
-    //         } catch (err){
-    //         console.log(err);
-    //         return res.status(500).json(err);
-    //     }
-    // },
 // DELETE THOUGHT
     async deleteThought(req, res) {
         try{

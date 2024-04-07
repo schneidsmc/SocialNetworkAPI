@@ -80,27 +80,6 @@ async deleteUser(req, res) {
     }
 },
 
-
-
-// async deleteUser(req, res) {
-    //     try{
-    //         const user = await User.findOneAndRemove({_id: req.params.userId})
-
-    //     if (!user) {
-    //         return res.status(404).json({message: 'No User Found with that ID!'})
-    //     }
-
-    //     const thoughts = await Thought.deleteMany({_id: {$in: user.thoughts}})
-
-    //     if(!thoughts.deletedCount === 0){
-    //         return res.status(404).json({message: 'No Thought Found with that User ID!'})
-    //     }
-    //     res.json({message: 'User and Thoughts Deleted'})
-    //     }catch (err) {
-    //         res.status(500).json(err)
-    //     }
-    // },
-
  // ADD FRIEND
     async addFriend(req, res) {
         try{
@@ -138,32 +117,6 @@ async deleteUser(req, res) {
         }
     }
 }
-// async deleteFriend(req, res) {
-//     try {
-//         const userId = req.params.userId;
-//         const friendId = req.params.friendId;
-
-//         // Check if userId and friendId are valid ObjectIDs
-//         if (!mongoose.Types.ObjectId.isValid(userId) || !mongoose.Types.ObjectId.isValid(friendId)) {
-//             return res.status(400).json({ message: 'Invalid ObjectID' });
-//         }
-
-//         const user = await User.findOneAndUpdate(
-//             { _id: userId },
-//             { $pull: { friends: friendId } },
-//             { new: true }
-//         );
-
-//         if (!user) {
-//             return res.status(404).json({ message: 'User not found' });
-//         }
-
-//         res.json({ message: 'Friend deleted successfully', user });
-//     } catch (err) {
-//         console.error(err);
-//         res.status(500).json({ message: 'Server error' });
-//     }
-// }
 
 
 

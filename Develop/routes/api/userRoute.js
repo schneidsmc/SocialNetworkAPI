@@ -1,9 +1,3 @@
-// getUsers
-// getSingleUser
-// createUser
-// deleteUser
-// addFriend
-// deleteFriend
 
 const router = require('express').Router();
 const{
