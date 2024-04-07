@@ -1,4 +1,5 @@
 const { User, Thought } = require('../models');
+const { Types } = require('mongoose');
 
 module.exports = {
     // GET THOUGHT
@@ -25,23 +26,53 @@ module.exports = {
 // CREATE THOUGHT
     async createThought(req, res) {
         try {
-            const thought = await Thought.create(req.body);
+            const { userId, username, thoughtText }= req.body;
 
-            const user = await User.findOneAndUpdate(
-                {_id: req.params.userId},
-                {$addToSet: {thoughts: thought._id}},
-                {runValidators: true, new: true}
+            const userIdObj = new Types.ObjectId(userId);
+
+            const newThought = await Thought.create({ userId, username, thoughtText});
+
+            if (!newThought) {
+                return res.status(400).json({message: 'failed to create thought'})
+            }
+
+            const updatedUser = await User.findByIdAndUpdate(
+                userId,
+                {$addToSet: {thoughts: newThought._id}},
+                {new: true}
             );
 
-            if (!user) {
-                return res.status(404).json({message: 'No User with this ID'})
+            if(!updatedUser){
+                return res.stat(404).json({message: 'User not found'})
             }
-             res.json(user)
+
+
+             res.status(201).json({message: 'Thought created successfully!', newThought})
             } catch (err){
             console.log(err);
             return res.status(500).json(err);
         }
     },
+    // async createThought(req, res) {
+    //     try {
+    //         const thought = await Thought.create(req.body);
+    //         const userId = req.params;
+
+    //         const user = await User.findOneAndUpdate(
+    //             {_id: userId},
+    //             {$push: {thoughts: thought._id}},
+    //             {runValidators: true, new: true}
+    //         );
+
+    //         if (!user) {
+    //             return res.status(404).json({message: 'No User with this ID'})
+    //         }
+    //          res.json({user, thought})
+    //         } catch (err){
+    //         console.log(err);
+    //         return res.status(500).json(err);
+    //     }
+    // },
 // DELETE THOUGHT
     async deleteThought(req, res) {
         try{
@@ -62,7 +93,7 @@ module.exports = {
             if (!user) {
                 res.status(404).json({message: 'Thought deleted but no user found'})
             }
-            res.json({message: 'Thought successfully deleted'})
+            res.json({message: 'Thought successfully deleted', user})
         } catch (err) {
             res.status(500).json(err)
         }

@@ -36,31 +36,41 @@ This was created using HTML,CSS,Javascript,NodeJS.
 
 ## User Story
 
+AS A social media startup
+I WANT an API for my social network that uses a NoSQL database
+SO THAT my website can handle large amounts of unstructured data
+
 ## Acceptance Criteria
+
+GIVEN a social network API"
+
+- WHEN I enter the command to invoke the application THEN my server is started and the Mongoose models are synced to the MongoDB database
+- WHEN I open API GET routes in Insomnia for users and thoughts THEN the data for each of these routes is displayed in a formatted JSON
+- WHEN I test API POST, PUT, and DELETE routes in Insomnia THEN I am able to successfully create, update, and delete users and thoughts in my database
+- WHEN I test API POST and DELETE routes in Insomnia THEN I am able to successfully create and delete reactions to thoughts and add and remove friends to a user’s friend list
 
 ## Installation 📋
 
 - What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
 
-`npm i` will install the necessary dependancies.
+`npm i` will install the necessary dependancies. In this case, the dependancies are express, mongoode and nodemon. 
+
+Once everything has been installed, the user can open an integrated terminanl and run `npm run start` to connect to MongoDB and connect to the local server at 3002.
+
 
 ## Usage 🏁
 
-Provide instructions and examples for use.
-
-This project can be initiated by starting the server and then using isonmia to test the routes for get/post/put/delete. 
+Thise database integrates different schemas and models to manipulate data. The networkAPI database hold Thoughts and Users which interact with each other through User thoughts and reactions, logging user friends as well as deleting and removing thoughts, reactions, friends and users. 
 
 ## Demonstration
 
-LINK SYNTAX
-[here]( )
 
-IMAGE SYNTAX 
-<img src="" alt="description" width="300" height="auto"> 
+You can find a demonstration on YouTube [here](https://youtu.be/P03SS7KCsxE). This show all the routes being utilized and the data being manipulated to fit the acceptance criteria.
 
-## License ✅ 
+MongoDB was utilized for the database. Mongo makes storing data and organizing the data clear and clean. The database is named networkAPI and it has Thought and User. The data is held within those schemas and can interact as picture below. 
 
 
+<img src="./Develop/images/networkAPI.png" alt="networkAPI" width="300" height="auto"> <img src="./Develop/images/user.png" alt="user" width="300" height="auto"> 
 
 ## Author 👋🏽
 
