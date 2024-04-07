@@ -51,7 +51,7 @@ GIVEN a social network API"
 
 ## Installation 📋
 
-- What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+[Here](https://github.com/schneidsmc/SocialNetworkAPI.git) is the link to the github repository for this project. The user can run `git clone https://github.com/schneidsmc/SocialNetworkAPI.git` to clone the repo down to a local machine. 
 
 `npm i` will install the necessary dependancies. In this case, the dependancies are express, mongoode and nodemon. 
 
@@ -65,7 +65,7 @@ Thise database integrates different schemas and models to manipulate data. The n
 ## Demonstration
 
 
-You can find a demonstration on YouTube [here](https://youtu.be/P03SS7KCsxE). This show all the routes being utilized and the data being manipulated to fit the acceptance criteria.
+You can find a demonstration on YouTube [here](https://youtu.be/huTouj3geKA). This show all the routes being utilized and the data being manipulated to fit the acceptance criteria.
 
 MongoDB was utilized for the database. Mongo makes storing data and organizing the data clear and clean. The database is named networkAPI and it has Thought and User. The data is held within those schemas and can interact as picture below. 
 
