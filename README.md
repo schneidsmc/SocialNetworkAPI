@@ -74,6 +74,8 @@ MongoDB was utilized for the database. Mongo makes storing data and organizing t
 
 ## Author 👋🏽
 
+GitHub Repo Link: [Social Network API](https://github.com/schneidsmc/SocialNetworkAPI.git)
+
 GitHub Username: [schneidsmc](https://github.com/schneidsmc)
 
 📧 Email: schneidsmc@gmail.com
